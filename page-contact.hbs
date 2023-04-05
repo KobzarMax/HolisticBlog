@@ -1,0 +1,78 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+
+{{!-- The main content area --}}
+
+<div class="gh-contact-wrapper">
+    <div class="gh-contact-header">
+        <h2 class="gh-contact-title">
+            Contact
+        </h2>
+        <p class="gh-contact-subtitle">
+            You want to chat? here’s contact form
+        </p>
+    </div>
+    <div class="gh-contact-form-wrapper">
+        <form id="contact-form" class="gh-contact-form" method="POST" action="https://formspree.io/f/mzbqjvgd">
+            <div class="gh-input-wrapper-row">
+                <div class="gh-input-wrapper">
+                    <input placeholder="First Name" name="name" id="name" type="text" class="gh-contact-input" required>
+                    <label for="name" class="gh-contact-label">
+                        First Name
+                    </label>
+                </div>
+                <div class="gh-input-wrapper">
+                    <input placeholder="Last Name" name="last_name" id="last_name" type="text" class="gh-contact-input" required>
+                    <label for="last_name" class="gh-contact-label">
+                        Last Name
+                    </label>
+                </div>
+            </div>
+            <div class="gh-input-wrapper-row">
+                <div class="gh-input-wrapper">
+                    <input placeholder="Location" name="locatiom" id="location" type="text" class="gh-contact-input" required>
+                    <label for="phone" class="gh-contact-label">
+                        Location
+                    </label>
+                </div>
+                <div class="gh-input-wrapper">
+                    <input placeholder="E-mail adress" name="email" id="email" type="email" class="gh-contact-input" required>
+                    <label for="email" class="gh-contact-label">
+                        E-mail adress
+                    </label>
+                </div>
+            </div>
+            <div class="gh-input-wrapper-row">
+                <label for="current-health" class="gh-contact-label--common">
+                    <span>Please share your current health struggles in order of importance</span>
+                    <textarea placeholder="Your message" class="gh-contact-textarea" name="current-health" id="current-health" cols="30" rows="10" required></textarea>
+                </label>
+            </div>
+            <div class="gh-input-wrapper-row">
+                <label for="avaliability" class="gh-contact-label--common">
+                    <span>Are you able to commit to 4 months of working together?</span>
+                    <input name="avaliability" id="avaliability" type="text" class="gh-contact-input" required>
+                </label>
+            </div>
+            <div class="gh-input-wrapper-row">
+                <label for="worked-before" class="gh-contact-label--common">
+                    <span>Have you worked with other holistic practitioners?</span>
+                    <input name="worked-before" id="worked-before" type="text" class="gh-contact-input" required>
+                </label>
+            </div>
+            <div class="gh-input-wrapper-row">
+                <label for="invest" class="gh-contact-label--common">
+                    <span>Are you willing to invest in your health?</span>
+                    <input name="invest" id="invest" type="text" class="gh-contact-input" required>
+                </label>
+            </div>
+            <div class="button-wrapper">
+                <button type="submit" class="gh-contact-button action-button">
+                    Send message
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

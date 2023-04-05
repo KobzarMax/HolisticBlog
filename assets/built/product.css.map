@@ -1,0 +1,1 @@
+{"version":3,"sources":["product.css"],"names":[],"mappings":"AAAA,cACI,oBACJ","file":"product.css","sourcesContent":[".product-card {\r\n    background-color: red;\r\n}\r\n\r\n"]}

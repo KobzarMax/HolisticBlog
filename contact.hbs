@@ -1,0 +1,89 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="site-content">
+        <main id="site-main" class="site-main outer">
+            <div class="gh-contact-wrapper">
+                <div class="gh-contact-header">
+                    <h2 class="gh-contact-title">
+                        Контакт
+                    </h2>
+                    <p class="gh-contact-subtitle">
+                        Вы хотите поболтать? Вот контактная форма
+                    </p>
+                </div>
+                <div class="gh-contact-form-wrapper">
+                    <form id="contact-form" class="gh-contact-form">
+                        <div class="gh-input-wrapper-row">
+                            <div class="gh-input-wrapper">
+                                <input placeholder="First name" name="name" id="name" type="text" class="gh-contact-input" required>
+                                <label for="name" class="gh-contact-label">
+                                    First name
+                                </label>
+                            </div>
+                            <div class="gh-input-wrapper">
+                                <input placeholder="Last name" name="surname" id="surname" type="text" class="gh-contact-input" required>
+                                <label for="company_name" class="gh-contact-label">
+                                    Last name
+                                </label>
+                            </div>
+                        </div>
+                        <div class="gh-input-wrapper-row">
+                            <div class="gh-input-wrapper">
+                                <input placeholder="Phone number" name="phone" id="phone" type="phone" class="gh-contact-input" required>
+                                <label for="phone" class="gh-contact-label">
+                                    Phone number
+                                </label>
+                            </div>
+                            <div class="gh-input-wrapper">
+                                <input placeholder="E-mail" name="email" id="email" type="email" class="gh-contact-input" required>
+                                <label for="email" class="gh-contact-label">
+                                    E-mail
+                                </label>
+                            </div>
+                        </div>
+                        <div class="gh-input-wrapper-row">
+                            <div class="gh-input-wrapper">
+                                <input placeholder="Title" name="title" id="title" type="text" class="gh-contact-input" required>
+                                <label for="title" class="gh-contact-label">
+                                    Title
+                                </label>
+                            </div>
+                        </div>
+                        <textarea placeholder="Send message" class="gh-contact-textarea" name="message" id="message" cols="30" rows="10" required></textarea>
+                        <div class="button-wrapper">
+                            <button type="submit" class="gh-contact-button action-button">
+                                Send message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                const form = document.getElementById("contact-form");
+                form.addEventListener("submit", formSubmit);
+
+                function formSubmit(e) {
+                    e.preventDefault();
+                    const formData = new FormData(e.target);
+
+
+                    fetch('https://getform.io/f/2507c5dc-3a30-4bc3-a972-d74c46676c0b', {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "Accept": "application/json",
+                        },
+                    })
+                            .then(response => console.log(response))
+                            .catch(error => console.log(error))
+                }
+            </script>
+        </main>
+    </div>
+</main>

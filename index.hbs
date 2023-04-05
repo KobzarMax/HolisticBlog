@@ -1,0 +1,73 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main">
+    <div class="gh-site-heading">
+        <div class="gh-website-socials">
+            <a href="https://www.facebook.com/groups/6984017671615847/?ref=share" class="gh-social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/holisticwayoflife4/" class="gh-social-link"><i class="fa-brands fa-instagram"></i></a>
+            {{#if @custom.amazon_link}}
+                <a href="{{@custom.amazon_link}}" class="gh-social-link"><i class="fa-brands fa-amazon"></i></a>
+            {{/if}}
+        </div>
+        <p class="gh-site-subtitle">
+            {{@custom.site_subtitle}}
+        </p>
+        <div class="tags-wrapper">
+            <ul class="tag-list">
+                <li class="tag-list-item"><a href="{{@site.url}}" class="tag-name-link">All</a></li>
+                <li class="tag-list-item dropdown">
+                    <div class="tag-name-link-wrapper dropdtn tag-name-link">
+                        Food <i class="fa-solid fa-caret-right"></i>
+                        <div class="dropdown-content">
+                            <div class="dropdown-menu">
+                                <ul class="dropdown-list">
+                                    <li class="dropdown-item"><a href="/tag/breakfast" class="dropdown-link">Breakfast</a></li>
+                                    <li class="dropdown-item"><a href="/tag/lunch" class="dropdown-link">Lunch</a></li>
+                                    <li class="dropdown-item"><a href="/tag/dinner" class="dropdown-link">Dinner</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="tag-list-item dropdown">
+                    <div class="tag-name-link-wrapper dropdtn tag-name-link">
+                        Health <i class="fa-solid fa-caret-right"></i>
+                        <div class="dropdown-content">
+                            <div class="dropdown-menu">
+                                <ul class="dropdown-list">
+                                    <li class="dropdown-item"><a href="/tag/skin-care" class="dropdown-link">Skin care</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="tag-list-item dropdown">
+                    <a href="/tag/cleaning" class="tag-name-link-wrapper dropdtn tag-name-link">
+                        Cleaning 
+                    </a>
+                 </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="inner posts">
+
+        <div class="main-content">
+            {{#get "posts" filter="tag:[breakfast, cleaning, dinner, lunch, skin-care]" as |default|}}
+                <div class="post-feed">
+                    {{#foreach default}}
+                        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            {{/get}}
+        </div>
+
+        {{pagination}}
+
+    </div>
+</main>

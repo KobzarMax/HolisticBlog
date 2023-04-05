@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{else match @custom.color_scheme "Auto"}} class="auto-color"{{/match}}>
+<head>
+
+    {{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
+    <title>{{meta_title}}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Discover holistic approaches to health and wellness on our blog. From natural remedies to meditation, we offer tips and insights to help you achieve optimal health.">
+
+    {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
+    this will take care of caching and cache-busting automatically --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css" integrity="sha512-+oRH6u1nDGSm3hH8poU85YFIVTdSnS2f+texdPGrURaJh8hzmhMiZrQth6l56P4ZQmxeZzd2DqVEMqQoJ8J89A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css" integrity="sha512-+oRH6u1nDGSm3hH8poU85YFIVTdSnS2f+texdPGrURaJh8hzmhMiZrQth6l56P4ZQmxeZzd2DqVEMqQoJ8J89A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+
+    {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
+    it should always be the last tag before the closing head tag --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}} is-head-{{#match @custom.navigation_layout "Logo on cover"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}{{#if @custom.show_publication_cover}} has-cover{{/if}}">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head {{#match @custom.header_style "Hidden"}} is-header-hidden{{/match}}">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <button class="gh-burger">
+                    <span></span>
+                </button>
+            </div>
+            {{#if @custom.site_title}}
+                <a href="{{@site.url}}" class="gh-website-title">
+                    {{@custom.site_title}}
+                </a>
+            {{/if}}
+
+            <div class="header-location">
+                <nav class="gh-head-menu">
+                    {{navigation}}
+                </nav>
+                <div class="header-location-actions">
+                    <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                    <div class="language-chage-wrapper">
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <div class="dropdown__button">EN</div>
+                                <ul class="dropdown__list">
+                                    <li class="dropdown__list-item" data-value="EN"><a href="{{@site.url}}">EN</a></li>
+                                    <li class="dropdown__list-item" data-value="RU"><a href="/ru">RU</a></li>
+                                </ul>
+                                <input type="text" name="select-category" value="" class="dropdown__input-hidden">
+                            </div>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content products-content">
+        <main id="site-main" class="site-main outer">
+            <div class="products-main-header">
+                <div class="tags-wrapper">
+                    <ul class="tag-list">
+                        <li class="tag-list-item"><a href="{{@site.url}}/products" class="tag-name-link">All</a></li>
+                        <li class="tag-list-item dropdown">
+                            <a href="/4Life" class="tag-name-link">
+                                4Life 
+                            </a>
+                        </li>
+                        <li class="tag-list-item dropdown">
+                            <a href="/coral-club" class="tag-name-link">
+                                Coral Club
+                            </a>
+                        </li>
+                        <li class="tag-list-item dropdown">
+                            <a href="/essential-spices" class="tag-name-link">
+                                Essential Spices
+                            </a>
+                        </li>
+                        <li class="tag-list-item dropdown">
+                            <a href="/amazon" class="tag-name-link">
+                                Amazon
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="gh-website-socials">
+                    <a href="https://www.facebook.com/groups/6984017671615847/?ref=share" class="gh-social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/holisticwayoflife4/" class="gh-social-link"><i class="fa-brands fa-instagram"></i></a>
+                    {{#if @custom.amazon_link}}
+                        <a href="{{@custom.amazon_link}}" class="gh-social-link"><i class="fa-brands fa-amazon"></i></a>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="products-info-content">
+                <div class="products-content-header" style="background-color: {{@site.accent_color}};">
+                    <h1 class="products-info-title">
+                        4Life
+                    </h1>
+                    {{!-- <p class="products-content-subtitle">
+                        4Life is a company that produces a range of dietary supplements and personal care products. Their flagship product is the 4Life Transfer Factor supplement, which is designed to support the immune system and overall wellness. In this article, we will take a closer look at some of the key products offered by 4Life.
+                    </p> --}}
+                </div>
+                <div class="video-wrapper">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/NFDKDXzXXqI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="product-info-text">
+                    <div class="info-subcontent">
+                        <h2 class="product-subtitle">4Life Transfer Factor</h2>
+                        <p class="product-text">
+                            Transfer factors are quite different from vitamins, minerals, and herbs. Vitamins and minerals are essential nutrients your body uses to carry out many important functions, such as the conversion of food into energy (metabolism). Herbs contain phytonutrients, natural compounds found in plant foods that act in a variety of ways to support optimal body function. Transfer factors are not classified as nutrients; they are messenger molecules that contain important immune system information and intelligence that can be relayed to immune cells throughout your body.*
+                        </p>
+                        <p class="product-text">
+                            Transfer factors are very small molecules that your immune system generates. They are not species-specific, which means that transfer factors generated by cows, chickens, and other animals can benefit the human immune system.*
+                        </p>
+                        <p class="product-text">
+                            Transfer factors in supplements are most commonly sourced from cow colostrum. The cow colostrum is filtered to remove ingredients such as casein and other large proteins, which allows for a high concentration of transfer factor molecules in the supplement.
+                        </p>
+                        <p class="product-text">
+                            Transfer factors support immune system health in three main ways:
+                        </p>
+                        <ul class="product-description-list">
+                            <li class="description-list-item">**Recognize: *Transfer factors help your immune system identify harmful invaders quickly.</li>
+                            <li class="description-list-item">**Respond: *Transfer factors enhance your immune system’s ability to respond to and destroy harmful invaders.</li>
+                            <li class="description-list-item">**Remember: *Transfer factor molecules store specific information about different invaders, which gets passed along to your immune system cells. Your immune system cells remember this information as long as they live (typically a few months), which helps them quickly identify and destroy invaders each time your body encounters them.</li>
+                        </ul>
+                        <p class="product-text">
+                            Typical immune system products are simply boosters, enhancing immune system function only. When you buy transfer factor products from 4Life, though, you get effective products that optimize your immune system response.* What does this mean?
+                        </p>
+                        <p class="product-text">
+                            When you take transfer factors, you significantly strengthen your immune system response.* Transfer factors help promote a balanced immune system response.*
+                        </p>
+                        <p class="product-text">
+                            Transfer factors contain a large amount of immune system knowledge, which helps your immune system quickly recognize and respond to harmful invaders.*
+                        </p>
+                        <p class="product-text">
+                            The human immune system is diverse and complex and has over 200 subtypes of cells, proteins, and mediators. Ideally, all components will work in a balanced way and perform their tasks. In reality, though, immune system balance can be disrupted by stress, poor diet choices, and even pollution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="products-wrapper">
+                {{#get "posts" filter="tag:[4life]" as |related|}}
+                    <section class="products-posts post-feed">
+                            {{#foreach related}}
+                                {{> product-card}}
+                            {{/foreach}}
+                    </section>
+                {{/get}}
+            </div>
+        </main>
+    </div>
+
+    {{!-- The global footer at the very bottom of the screen --}}
+    <footer class="site-footer outer">
+        <div class="footer-links">
+            <a class="footer-title-link" href="{{@site.url}}">Holistic Health Hub</a>
+            <nav class="site-footer-nav">
+                {{navigation type="secondary"}}
+            </nav>
+            <div class="gh-website-socials">
+                <a href="https://www.facebook.com/groups/6984017671615847/?ref=share" class="gh-social-link"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="#"></a>
+                <a href="https://www.instagram.com/holisticwayoflife4/" class="gh-social-link"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="#"></a>
+                {{#if @custom.amazon_link}}
+                    <a href="{{@custom.amazon_link}}" class="gh-social-link"><img src="https://img.icons8.com/color/256/amazon.png" alt="#"></a>
+                {{/if}}
+            </div>
+        </div>
+        <div class="inner">
+            <section class="copyright">&copy; {{date format="YYYY"}} HOLISTIC HEALTH HUB All rights reserverd. </section>
+        </div>
+    </footer>
+
+</div>
+{{!-- /.viewport --}}
+
+
+{{!-- Scripts - handle member signups, responsive videos, infinite scroll, floating headers, and galleries --}}
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="{{asset "built/casper.js"}}"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+{{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
+{{ghost_foot}}
+
+<script>
+$(document).ready(function() {
+    // open external links in new tab
+    $("a").each(function() {
+        const href = $(this).attr('href');
+        if (!href.startsWith(window.location.origin) && !href.startsWith('/')) {
+            $(this).attr('target', '_blank');
+        }
+    });
+
+    // force break in footer nav
+    $('<div class="flex-break"></div>').insertBefore('footer .nav-twitter');
+});
+</script>
+<script src="https://kit.fontawesome.com/e50b17d262.js" crossorigin="anonymous"></script>
+
+<script>
+    var headerItem = document.querySelector('#gh-head');
+
+document.addEventListener('scroll', animateNavnarOnScroll);
+
+function animateNavnarOnScroll() {
+  let totalHeight = headerItem.clientHeight
+  if (window.scrollY >= totalHeight) {
+    headerItem.classList.add("scroll");
+  } else {
+    headerItem.classList.remove("scroll");
+  }
+}
+</script>
+
+<script>
+var headerItem = document.querySelector('#gh-head');
+
+document.addEventListener('scroll', animateNavnarOnScroll);
+
+function animateNavnarOnScroll() {
+  let totalHeight = headerItem.clientHeight
+  if (window.scrollY >= totalHeight) {
+    headerItem.classList.add("scroll");
+  } else {
+    headerItem.classList.remove("scroll");
+  }
+}
+
+window.addEventListener("load", function(){
+  backgroundSequence();
+})
+
+var bgImageArray = ["https://media2.4life.com/images/pageBuilder/hero_updated.jpg",],
+// var bgImageArray = ["https://i.7fon.org/1000/e107061.jpg", "https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2022/11/14155054/Netflix-India-1600x900.jpg?tr=w-1920",],
+base = "",
+secs = 4;
+bgImageArray.forEach(function(img){
+    new Image().src = base + img; 
+    // caches images, avoiding white flash between background replacements
+});
+
+function backgroundSequence() {
+  window.clearTimeout();
+  var k = 0;
+  for (i = 0; i < bgImageArray.length; i++) {
+    setTimeout(function(){ 
+      const bgItem = document.querySelector('.products-main-header')
+      bgItem.style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center";
+      bgItem.style.backgroundSize ="cover";
+    if ((k + 1) === bgImageArray.length) { setTimeout(function() { backgroundSequence() }, (secs * 1000))} else { k++; }			
+    }, (secs * 1000) * i)	
+  }
+}
+</script>
+
+
+</body>
+</html>
